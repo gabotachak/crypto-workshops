@@ -40,7 +40,7 @@ class VigenereEncryption:
         result = "".join([self.encrypt_chr(a, b) for a, b in zip(text, key)])
         return " ".join([result[i : i + t] for i in range(0, len(result), t)])
 
-    def decrypt_str(self, text: str, key: str, t: int) -> str:
+    def decrypt_str(self, text: str, key: str, _: int) -> str:
         text = text.upper().replace(" ", "")
         key = key.upper().replace(" ", "")
         
@@ -51,13 +51,29 @@ class VigenereEncryption:
 
 vigenere = VigenereEncryption()
 
-print(
-    vigenere.encrypt_str(
-        "THERE IS A SECRET PASSAGE BEHIND THE PICTURE FRAME", "CRYPTO", 3
-    )
-)
-print(
-    vigenere.decrypt_str(
-        "VYC GXW URQ TVF GKN PLG CXC QXV KEB IAS RZA INF GWP PFS", "CRYPTO", 3
-    )
-)
+text = "THERE IS A SECRET PASSAGE BEHIND THE PICTURE FRAME"
+key = "CRYPTO"
+t = 3
+
+print(f"Encrypting '{text}' with key '{key}' and t={t}: {vigenere.encrypt_str(text, key, t)}")
+
+text = "VYC GXW URQ TVF GKN PLG CXC QXV KEB IAS RZA INF GWP PFS"
+
+print(f"Decrypting '{text}' with key '{key}' and t={t}: {vigenere.decrypt_str(text, key, t)}")
+
+print("Encrypting text with key")
+
+text = input("Enter text: ")
+key = input("Enter key:  ")
+t = input("Enter t:    ")
+
+print(f"Encrypting '{text}' with key '{key}' and t={t}: {vigenere.encrypt_str(text, key, int(t))}")
+
+print("Decrypting text with key")
+
+text = input("Enter text: ")
+key = input("Enter key:  ")
+t = input("Enter t:    ")
+
+print(f"Decrypting '{text}' with key '{key}' and t={t}: {vigenere.decrypt_str(text, key, int(t))}")
+
