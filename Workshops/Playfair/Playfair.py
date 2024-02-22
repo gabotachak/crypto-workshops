@@ -46,7 +46,7 @@ class PlayfairEncrypter:
         else:
             return self.get_chr(a_i, b_j) + self.get_chr(b_i, a_j)
 
-    def encrypt(self, text: str) -> str:
+    def encrypt_str(self, text: str) -> str:
         text = "".join(c for c in text.upper() if c.isalpha())
         text = text.replace("J", "I")
 
@@ -56,30 +56,48 @@ class PlayfairEncrypter:
             self.encrypt_pair(text[i], text[i + 1]) for i in range(0, len(text), 2)
         )
 
-    def decrypt(self, text: str) -> str:
+    def decrypt_str(self, text: str) -> str:
         text = text.replace(" ", "").replace("J", "I")
 
         return "".join(
             self.decrypt_pair(text[i], text[i + 1]) for i in range(0, len(text), 2)
         )
+    
 
-
-playfair = PlayfairEncrypter(
-    """
+DEFAULT_KEY = """
     YOANP
     IZBCD
     EFGHK
     LMQRS
     TUVWX
-    """
-)  # This is the key for the Playfair cipher
+"""
 
-print(
-    f"Encrypting 'THIS SECRET MESXSAGE IS ENCRYPTEDX': {playfair.encrypt('THIS SECRET MESXSAGE IS ENCRYPTEDX')}"
-)
+playfair = PlayfairEncrypter(DEFAULT_KEY)  # You must declare the key here
 
-print(
-    f"Decrypting 'WE DL LK HW LY LF XP QP HF DL HY HW OY YL KP': {playfair.decrypt('WE DL LK HW LY LF XP QP HF DL HY HW OY YL KP')}"
-)
+print(f"Using default key: {DEFAULT_KEY}")
 
-# TODO: Add manual function to encrypt and decrypt
+text = "THIS SECRET MESXSAGE IS ENCRYPTEDX"
+
+print(f"Encrypting '{text}': {playfair.encrypt_str(text)}")
+
+text = "WE DL LK HW LY LF XP QP HF DL HY HW OY YL KP"
+
+print(f"Decrypting '{text}': {text}")
+
+print("Encrypting text with key")
+
+key = input("Enter the key (set to default if empty): ")
+key = key if key else DEFAULT_KEY
+
+text = input("Enter text: ")
+
+operation = input("Enter operation (encrypt=1/decrypt=0): ")
+if operation not in ["0", "1"]:
+    raise ValueError("Operation must be 0 or 1")
+
+playfair = PlayfairEncrypter(key)
+
+if operation == "1":
+    print(f"Encrypting '{text}': {playfair.encrypt_str(text)}")
+else:
+    print(f"Decrypting '{text}': {playfair.decrypt_str(text)}")
