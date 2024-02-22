@@ -87,11 +87,11 @@ print(f"Decrypting '{text}': {playfair.decrypt_str(text)}")
 print("\nEncrypting text with key")
 
 key = input("Enter the key (set to default if empty): ")
+text = input("Enter text: ")
+operation = input("Enter operation (encrypt=1/decrypt=0): ")
+
 key = key if key else DEFAULT_KEY
 
-text = input("Enter text: ")
-
-operation = input("Enter operation (encrypt=1/decrypt=0): ")
 if operation not in ["0", "1"]:
     raise ValueError("Operation must be 0 or 1")
 
