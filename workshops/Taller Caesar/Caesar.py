@@ -55,6 +55,6 @@ print("Decrypting text with key")
 
 t = input("Enter text: ")
 m = input("Enter m:    ")
-k = input("Enter key:  ")
+k = input("Enter k:    ")
 
 print(f"Decrypting '{t}' with m={m} and k={k}: {caesar.decrypt_str(t, int(m), int(k))}")
