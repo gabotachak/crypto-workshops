@@ -4,7 +4,7 @@ class CaesarEncrypter:
         if not isinstance(a, int):
             a = ord(a)
 
-        return ord("A") <= a and a <= ord("Z")
+        return ord("A") <= a <= ord("Z")
 
     def encrypt_chr(self, a: str, k: int) -> str:
         a = a.upper()
