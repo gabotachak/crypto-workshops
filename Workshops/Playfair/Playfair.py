@@ -82,9 +82,9 @@ print(f"Encrypting '{text}': {playfair.encrypt_str(text)}")
 
 text = "WE DL LK HW LY LF XP QP HF DL HY HW OY YL KP"
 
-print(f"Decrypting '{text}': {text}")
+print(f"Decrypting '{text}': {playfair.decrypt_str(text)}")
 
-print("Encrypting text with key")
+print("\nEncrypting text with key")
 
 key = input("Enter the key (set to default if empty): ")
 key = key if key else DEFAULT_KEY
