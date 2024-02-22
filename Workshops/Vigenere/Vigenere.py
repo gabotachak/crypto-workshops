@@ -1,4 +1,4 @@
-class VigenereEncryption:
+class VigenereEncrypter:
     A: int = ord("A")
     Z: int = ord("Z")
 
@@ -49,7 +49,7 @@ class VigenereEncryption:
         return "".join([self.decrypt_chr(a, b) for a, b in zip(text, key)])
 
 
-vigenere = VigenereEncryption()
+vigenere = VigenereEncrypter()
 
 text = "THERE IS A SECRET PASSAGE BEHIND THE PICTURE FRAME"
 key = "CRYPTO"
