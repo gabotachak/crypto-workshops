@@ -81,3 +81,5 @@ print(
 print(
     f"Decrypting 'WE DL LK HW LY LF XP QP HF DL HY HW OY YL KP': {playfair.decrypt('WE DL LK HW LY LF XP QP HF DL HY HW OY YL KP')}"
 )
+
+# TODO: Add manual function to encrypt and decrypt
