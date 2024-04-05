@@ -14,7 +14,9 @@ class TurningGrilleEncrypter:
 
         self.matrix = matrix
 
-    def get_rotated_matrix(self, times: int = 1, clockwise: bool = True) -> List[List[str]]:
+    def get_rotated_matrix(
+        self, times: int = 1, clockwise: bool = True
+    ) -> List[List[str]]:
         times %= 4
         rotated_matrix = self.matrix
         for _ in range(times):
@@ -22,7 +24,7 @@ class TurningGrilleEncrypter:
                 rotated_matrix = list(zip(*rotated_matrix[::-1]))
             else:
                 rotated_matrix = list(zip(*rotated_matrix))[::-1]
-            
+
         return rotated_matrix
 
 
