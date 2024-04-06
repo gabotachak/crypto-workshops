@@ -30,11 +30,11 @@ class CaesarEncrypter:
         t = t.replace(" ", "")
 
         r = "".join([self.encrypt_chr(a, k) for a in t.upper()])
-        return " ".join([r[i : i + m] for i in range(0, len(r), m)])
+        return " ".join([r[i: i + m] for i in range(0, len(r), m)])
 
     def decrypt_str(self, t: str, _: int, k: int) -> str:
         t = t.replace(" ", "")
-        
+
         return "".join([self.decrypt_chr(a, k) for a in t.upper()])
 
 

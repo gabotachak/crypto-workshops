@@ -10,7 +10,7 @@ class PlayfairEncrypter:
         if len(key) != len(set(key)) or len(key) != 25:
             raise ValueError("Key must be 25 distinct characters long")
 
-        self.matrix = [list(key[i : i + 5]) for i in range(0, 25, 5)]
+        self.matrix = [list(key[i: i + 5]) for i in range(0, 25, 5)]
 
     def find_chr(self, c: str) -> tuple[int, int]:
         c = c.upper()
@@ -62,7 +62,7 @@ class PlayfairEncrypter:
         return "".join(
             self.decrypt_pair(text[i], text[i + 1]) for i in range(0, len(text), 2)
         )
-    
+
 
 DEFAULT_KEY = """
     YOANP
