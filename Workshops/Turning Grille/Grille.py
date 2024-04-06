@@ -29,14 +29,6 @@ class TurningGrilleEncrypter:
 
 
 with open("Workshops/Turning Grille/Grille.txt") as f:
-    matrix = [list(line.strip()) for line in f]
+    grille = [list(line.strip()) for line in f]
 
-print(matrix)
-
-encrypter = TurningGrilleEncrypter(matrix)
-
-for i in range(4):
-    rotated_matrix = encrypter.get_rotated_matrix(i)
-    for row in rotated_matrix:
-        print("".join(row))
-    print()
+encrypter = TurningGrilleEncrypter(grille)
