@@ -79,15 +79,23 @@ class TurningGrilleEncrypter:
         return "".join(decrypted_message)
 
 
-with open("Workshops/Turning Grille/Grille2x2.txt") as f:
-    grille = [[int(i) for i in line.strip()] for line in f]
+grille = [[1, 0, 0, 0], [0, 0, 0, 0], [0, 1, 0, 1], [0, 0, 1, 0]]
 
 encrypter = TurningGrilleEncrypter(grille)
 
 print(encrypter.encrypt_message("JIM ATTACKS AT DAWN", False))
 
-with open("Workshops/Turning Grille/Grille9x9.txt") as f:
-    grille = [[int(i) for i in line.strip()] for line in f]
+grille = [
+    [1, 0, 0, 1, 0, 1, 0, 0, 0],
+    [0, 0, 1, 0, 0, 0, 0, 0, 1],
+    [0, 1, 0, 0, 0, 0, 1, 0, 0],
+    [0, 0, 1, 0, 1, 0, 0, 1, 0],
+    [0, 0, 0, 0, 1, 0, 1, 0, 1],
+    [0, 0, 0, 1, 0, 0, 0, 1, 0],
+    [1, 0, 0, 0, 0, 1, 0, 0, 0],
+    [0, 1, 0, 0, 1, 0, 0, 0, 1],
+    [0, 0, 1, 0, 0, 0, 0, 0, 0],
+]
 
 encrypter = TurningGrilleEncrypter(grille)
 
